@@ -1,1 +1,55 @@
 // TODO: DEFINE YOUR BUTTON STYLES HERE
+$primary-color: #00C76B;
+$secondary-color: #ffffff;
+$hover-color: #008b4a;
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+#new-button {
+  display: inline-block;
+  outline: none;
+  margin: .2em;
+  padding: .6em;
+  opacity: 1;
+  border: 1px solid $primary-color;
+  border-radius: .2em;
+  color: $secondary-color;
+  background-color: $primary-color;
+  @include transition(background-color .9s ease);
+  @include transition(color .5s ease);
+  @include transition(opacity .5s ease);
+
+  &:disabled{
+    opacity: 0.4;
+    color: $primary-color;
+    background-color: $secondary-color;
+    border: 1px solid $primary-color;
+    @include transition(background-color .9s ease);
+    @include transition(color .5s ease);
+    @include transition(opacity .5s ease);
+
+    &:hover{
+      color: $primary-color;
+      background-color: $secondary-color;
+      border: 1px solid $primary-color;
+    }
+  }
+
+  &:hover{
+    background-color: $hover-color;
+    border: 1px solid $hover-color;
+    @include transition(background-color .9s ease);
+    @include transition(border .9s ease);
+  }
+
+  &:active{
+    background-color: #007740;
+    box-shadow: #007740 .5px;
+  }
+}
